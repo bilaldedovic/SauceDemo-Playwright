@@ -10,14 +10,10 @@ export class CheckoutFormPage {
         this.page = page;
     }
 
-
     async fillOutCheckoutForm(){
-
         await this.page.getByRole('textbox', {name:'First Name'}).fill(faker.person.firstName());
         await this.page.getByRole('textbox',{name:'Last Name'}).fill(faker.person.lastName());
         await this.page.getByRole('textbox',{name:'Zip/Postal Code'}).fill(faker.location.zipCode());
-
-
     }
 
     async clickContinueButton(){

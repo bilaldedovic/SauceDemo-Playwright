@@ -14,4 +14,11 @@ export class CheckoutOverviewPage {
 
         expect(await this.page.url()).toEqual(url.checkoutCompletePage);
     }
+
+    async collectItemTotalPrice(price:string){
+        const totalItemPrice = this.page.locator('.summary_subtotal_label').textContent();
+        
+        
+        expect(await totalItemPrice).toContain(price);
+    }
 }

@@ -11,6 +11,7 @@ export class CartPage {
 
 
     async validateThatCartPageIsOpened(){
+        await this.page.screenshot({path:'screenshots/cart.png'})
         expect(await this.page.url()).toEqual(url.cartPage);
     }
 
@@ -31,5 +32,23 @@ export class CartPage {
     async validateAddedItemsToCart(check:number){
 
         expect(await this.page.locator('.cart_item').count()).toEqual(check);
+    }
+
+    async collectAllPricesForItems(){
+      
+            const prices = await this.page.locator('.inventory_item_price').allTextContents();
+            const priceArray: number[] = [];
+        
+            for (let price of prices) {
+              let newPrice = price.slice(1);
+              priceArray.push(Number(newPrice))
+        
+            }
+            
+            
+            const sumPrice = priceArray.reduce((a, b) => a + b, 0);
+            
+            return sumPrice.toString();
+          
     }
 }
