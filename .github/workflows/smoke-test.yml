@@ -15,10 +15,8 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install chromium
-    - name: Go to smoke test folder
-      run: cd tests/smoke
     - name: Run Playwright tests
-      run: npx playwright test 
+      run: npx playwright test tests/smoke
     - uses: actions/upload-artifact@v3
       if: always()
       with:

@@ -15,10 +15,8 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install chromium
-    - name: Go to regression test folder
-      run: cd tests/regression
-    - name: Run Playwright tests
-      run: npx playwright test 
+    - name: Run Playwright tests in regression directory 
+      run: npx playwright test tests/regression
     - uses: actions/upload-artifact@v3
       if: always()
       with:
