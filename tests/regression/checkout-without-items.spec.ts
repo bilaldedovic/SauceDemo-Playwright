@@ -10,7 +10,7 @@ test.beforeEach(async ({page})=>{
 });
 
 
-test('Checkout without items', async ({page})=>{
+test('Checkout without items', async ({page}, testInfo)=>{
 
     const pageManager = new PageManager(page);
 
@@ -19,9 +19,7 @@ test('Checkout without items', async ({page})=>{
     await pageManager.allItemsPage().openCart();
 
     await pageManager.cartPage().validateAddedItemsToCart(0);
-
     await pageManager.cartPage().clickCheckoutButton();
-
-    await pageManager.cartPage().validateThatCartPageIsOpened();
+    await pageManager.cartPage().validateThatCartPageIsOpened(testInfo.title);
 
 })

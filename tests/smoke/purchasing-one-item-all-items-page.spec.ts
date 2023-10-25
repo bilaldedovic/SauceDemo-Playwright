@@ -8,13 +8,13 @@ test.beforeEach(async ({page})=>{
     await pageManager.loginPage().openSauceDemo();
 })
 
-test('Purchasing one item from All items page', async ({page}) =>{
+test('Purchasing one item from All items page', async ({page},testInfo) =>{
     const pageManager = new PageManager(page);
     
     await pageManager.loginPage().loginToThePageUsingStandardUserCredentials();
     await pageManager.allItemsPage().addSauceLabsBackPackToTheCart();
     await pageManager.allItemsPage().openCart();
-    await pageManager.cartPage().validateThatCartPageIsOpened();
+    await pageManager.cartPage().validateThatCartPageIsOpened(testInfo.title);
     await pageManager.cartPage().validateThatItemIsAddedToCart('Sauce Labs Backpack')
     await pageManager.cartPage().clickCheckoutButton();
     await pageManager.checkoutFormPage().fillOutCheckoutForm();

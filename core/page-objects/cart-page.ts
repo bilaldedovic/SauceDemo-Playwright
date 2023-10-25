@@ -10,8 +10,11 @@ export class CartPage {
     }
 
 
-    async validateThatCartPageIsOpened(){
-        await this.page.screenshot({path:'screenshots/cart.png'})
+    async validateThatCartPageIsOpened(testInfo){
+        if(testInfo !== 'Purchasing one item from All items page' && testInfo !== 'Purchasing one item from Product items page'){
+            await this.page.screenshot({path:'screenshots/cart.png'})
+            
+        }
         expect(await this.page.url()).toEqual(url.cartPage);
     }
 
