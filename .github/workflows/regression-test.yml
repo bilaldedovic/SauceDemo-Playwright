@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Regression tests
 on:
   schedule:
     - cron: "00 12 * * *"
