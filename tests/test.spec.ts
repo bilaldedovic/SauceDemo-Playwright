@@ -16,7 +16,7 @@ test.skip('Test test', async ({page})=>{
 })
 
 
-test.skip('Full smoke test', async ({page}) =>{
+test.skip('Full smoke test', async ({page},testInfo) =>{
 
 
     const pageManager = new PageManager(page);
@@ -26,7 +26,7 @@ test.skip('Full smoke test', async ({page}) =>{
     await pageManager.allItemsPage().openSauceLabsBackpackItem();
     await pageManager.productItemPage().addSauceLabsBackpackFromProductDetailsPage();
     await pageManager.productItemPage().openCart();
-    await pageManager.cartPage().validateThatCartPageIsOpened();
+    await pageManager.cartPage().validateThatCartPageIsOpened(testInfo.title);
     await pageManager.cartPage().validateThatItemIsAddedToCart('Sauce Labs Backpack')
     await pageManager.cartPage().clickCheckoutButton();
     await pageManager.checkoutFormPage().fillOutCheckoutForm();

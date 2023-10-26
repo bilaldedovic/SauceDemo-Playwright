@@ -1,10 +1,9 @@
 name: Regression tests
 on:
   schedule:
-    - cron: "51 09 * * *"
+    - cron: "15 08 * * *"
 jobs:
   test:
-    timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
