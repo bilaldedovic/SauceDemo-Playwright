@@ -1,7 +1,7 @@
 name: Regression tests
 on:
-  schedule:
-    - cron: "15 08 * * *"
+  push:
+    branches: main
 jobs:
   test:
     runs-on: ubuntu-latest
