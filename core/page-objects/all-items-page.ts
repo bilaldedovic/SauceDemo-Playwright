@@ -18,7 +18,6 @@ export class AllItemsPage {
 
   async checkIfAllItemsAreAddedOnCartSpan(count:number){
     expect(Number(await this.page.locator('.shopping_cart_badge').textContent())).toEqual(count);
-
   }
   async openCart(): Promise<void> {
     await this.page.locator('.shopping_cart_link').click();
