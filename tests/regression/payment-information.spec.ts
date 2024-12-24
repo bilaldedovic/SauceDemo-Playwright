@@ -23,6 +23,7 @@ test('payment information',async ({page}) => {
     await pageManager.cartPage().clickCheckoutButton();
     await pageManager.checkoutFormPage().fillOutCheckoutForm();
 
+    
     await pageManager.checkoutFormPage().clickContinueButton();
 
     await pageManager.checkoutOverviewPage().collectItemTotalPrice(await pageManager.cartPage().collectAllPricesForItems());
